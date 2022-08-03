@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github+PicGo/PicX 搭建免费图床</title>
+      <link href="/posts/26RXQJW.html"/>
+      <url>/posts/26RXQJW.html</url>
+      
+        <content type="html"><![CDATA[<p>使用 Github 搭配图片上传工具PicGo或者PicX搭建免费图床，配置Markdown编辑器Typora自动上传图片，并配置CDN加速访问</p><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><blockquote><p>公开Github仓库，下文以<code>10wen/image-hosting</code>为例；</p><p>工具：<a href="https://molunerfinn.com/PicGo/">下载PicGo工具</a>，<a href="https://picx.xpoet.cn/">PicX官网</a></p></blockquote><h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><p><strong>地址：</strong><a href="https://github.com/settings/tokens">Generate new token</a></p><p><strong>注意：</strong>生成token后保存下来，避免刷新页面token被隐藏</p><p><img src="https://s2.loli.net/2022/08/03/lMVySokNsZzLFW2.png" alt="image-20220803145438167"></p><h2 id="Github搭配PicGo-Typora"><a href="#Github搭配PicGo-Typora" class="headerlink" title="Github搭配PicGo+Typora"></a>Github搭配PicGo+Typora</h2><p>打开PicGo上传区选择Github</p><h3 id="PicGo配置Github"><a href="#PicGo配置Github" class="headerlink" title="PicGo配置Github"></a>PicGo配置Github</h3><p><img src="https://s2.loli.net/2022/08/03/MjY8wASzWRiQ63b.png" alt="image-20220803150209881"></p><p>为了达到加速访问，配置CDN外链<strong>设定自定义域名：</strong><code>https://cdn.staticaly.com/gh/用户名/仓库名@分支名</code>，例如：<code>https://cdn.staticaly.com/gh/10wen/image-hosting@master</code></p><h3 id="PicGo设置"><a href="#PicGo设置" class="headerlink" title="PicGo设置"></a>PicGo设置</h3><p>开启PicGo-Serve保持默认地址<code>127.0.0.1</code>以及端口<code>36677</code>，打开上传重命名，</p><p><img src="https://s2.loli.net/2022/08/03/ZpQ9ChqVK8k16Ud.png" alt="image-20220803151417376"></p><h3 id="Typora偏好设置-图像"><a href="#Typora偏好设置-图像" class="headerlink" title="Typora偏好设置-图像"></a>Typora偏好设置-图像</h3><p><img src="https://s2.loli.net/2022/08/03/fUBAv8LjlembzcJ.png" alt="image-20220803152347684"></p><h3 id="验证图片上传"><a href="#验证图片上传" class="headerlink" title="验证图片上传"></a>验证图片上传</h3><p>向typora插入图片出现如下效果：</p><p><img src="https://s2.loli.net/2022/08/03/Vsq8BLuTAw3Hl1W.png" alt="image-20220803152824851"></p><p>重命名上传图片后发现图片地址改为外链地址则为配置成功，愉快的写文章</p><h2 id="Github搭配PicX"><a href="#Github搭配PicX" class="headerlink" title="Github搭配PicX"></a>Github搭配PicX</h2><h3 id="打开PicX官网-图床配置"><a href="#打开PicX官网-图床配置" class="headerlink" title="打开PicX官网-图床配置"></a>打开PicX官网-图床配置</h3><p><img src="https://s2.loli.net/2022/08/03/VIcQy76jlWd9MvS.png" alt="image-20220803153451134"></p><p>完成配置即可</p><h2 id="关于图片外链地址"><a href="#关于图片外链地址" class="headerlink" title="关于图片外链地址"></a>关于图片外链地址</h2><h3 id="没有配置CDN："><a href="#没有配置CDN：" class="headerlink" title="没有配置CDN："></a>没有配置CDN：</h3><p>原生github静态资源地址</p><p><code>https://raw.githubusercontent.com/&#123;user&#125;/&#123;repo&#125;/&#123;branch&#125;/&#123;folderpath&#125;/&#123;filename&#125;</code></p><p>例如：<code>https://raw.githubusercontent.com/10wen/image-hosting/master/PicGo-img/example.png</code></p><h3 id="配置CDN外链："><a href="#配置CDN外链：" class="headerlink" title="配置CDN外链："></a>配置CDN外链：</h3><h4 id="jsdelivr"><a href="#jsdelivr" class="headerlink" title="jsdelivr"></a>jsdelivr</h4><p>自定义域名：<code>https://cdn.jsdelivr.net/gh/&#123;user&#125;/&#123;repo&#125;</code></p><p>图片地址：<code>https://cdn.jsdelivr.net/gh/&#123;user&#125;/&#123;repo&#125;/&#123;folderpath&#125;/&#123;filename&#125;</code></p><p>例如：<code>https://cdn.jsdelivr.net/gh/10wen/image-hosting/PicGo-img/example.png</code></p><h4 id="staticaly"><a href="#staticaly" class="headerlink" title="staticaly"></a>staticaly</h4><p>自定义域名：<code>https://cdn.staticaly.com/gh/&#123;user&#125;/&#123;repo&#125;@&#123;branch&#125;</code></p><p>图片地址：<code>https://cdn.staticaly.com/gh/&#123;user&#125;/&#123;repo&#125;@&#123;branch&#125;/&#123;folderpath&#125;/&#123;filename&#125;</code></p><p>例如：<code>https://cdn.staticaly.com/gh/10wen/image-hosting@master/PicGo-img/20220803155716.png</code></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> 图床 </tag>
+            
+            <tag> CDN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSDN博客Markdown语法</title>
       <link href="/posts/2DKYQSB.html"/>
       <url>/posts/2DKYQSB.html</url>
