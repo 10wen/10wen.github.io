@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>技术名词解释</title>
+      <link href="/posts/2C471B1.html"/>
+      <url>/posts/2C471B1.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="virtual-DOM（虚拟-DOM）"><a href="#virtual-DOM（虚拟-DOM）" class="headerlink" title="virtual DOM（虚拟 DOM）"></a>virtual DOM（虚拟 DOM）</h3><p>（<code>非官方解释</code>) Virtual DOM 是一种用于和真实DOM同步，而在JS内存仲维护的一个对象，他具有和DOM类似的树状结构，并和DOM可以建立一一对应的关系。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术名词 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Github+PicGo/PicX 搭建免费图床</title>
       <link href="/posts/26RXQJW.html"/>
       <url>/posts/26RXQJW.html</url>
