@@ -13,10 +13,6 @@
       
       <categories>
           
-          <category> JavaScript DOM </category>
-          
-          <category> JavaScript </category>
-          
           <category> JavaScript </category>
           
           <category> JavaScript DOM </category>
@@ -50,10 +46,6 @@
       
       <categories>
           
-          <category> 编程题 </category>
-          
-          <category> JavaScript </category>
-          
           <category> JavaScript </category>
           
           <category> 编程题 </category>
@@ -71,10 +63,6 @@
             
             <tag> leetcode </tag>
             
-            <tag> Java </tag>
-            
-            <tag> JavaScript </tag>
-            
         </tags>
       
     </entry>
@@ -90,8 +78,6 @@
       
       
       <categories>
-          
-          <category> 其他 </category>
           
           <category> 其他 </category>
           
@@ -117,8 +103,6 @@
       
       
       <categories>
-          
-          <category> 博客搭建 </category>
           
           <category> 博客搭建 </category>
           
@@ -150,8 +134,6 @@
       
       
       <categories>
-          
-          <category> 文档 </category>
           
           <category> 文档 </category>
           
@@ -215,8 +197,6 @@
           
           <category> 博客搭建 </category>
           
-          <category> 博客搭建 </category>
-          
       </categories>
       
       
@@ -247,8 +227,6 @@
       
       
       <categories>
-          
-          <category> 其他 </category>
           
           <category> 其他 </category>
           
