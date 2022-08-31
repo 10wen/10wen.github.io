@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>CommonJS与ES6 Module的使用区别分析</title>
+      <link href="/posts/DWSZ3B.html"/>
+      <url>/posts/DWSZ3B.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文转载自脚本之家，原文地址 <a href="https://www.jb51.net/article/246177.htm">www.jb51.net</a></p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学了 JS 并且用过 Node.js 后，对模块化应该是有所了解和使用了，那么一定见过以下两种模块导入导出的方式</p><p>第一种： ES6 Module</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">function show() &#123;</span><br><span class="line">    console.log(&#x27;show方法被执行&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">export default show</span><br><span class="line">// A.js</span><br><span class="line">import show from &#x27;./B.js&#x27;</span><br><span class="line">show()  // show方法被执行</span><br></pre></td></tr></table></figure><p>第二种： CommonJS</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">function show() &#123;</span><br><span class="line">    console.log(&#x27;show方法被执行&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    show</span><br><span class="line">&#125;</span><br><span class="line">// A.js</span><br><span class="line">const bModule = require(&#x27;./B.js&#x27;)</span><br><span class="line">bModule.show()  // show方法被执行</span><br></pre></td></tr></table></figure><p>以上两种导入导出方法涉及到了两种模块规范，分别是 ES6 Module 、CommonJS</p><p>本文就来聊聊这两者之间的具体使用与区别</p><h2 id="1-CommonJS"><a href="#1-CommonJS" class="headerlink" title="1. CommonJS"></a>1. CommonJS</h2><hr><p>CommonJS 是 2009 年由 JavaScript 社区提出的包含了模块化的一个标准，后来被 Node.js 所采用并实现，也就是说我们在 Node.js 中用到的模块导入导出都是依照 CommonJS 标准来实现的</p><h3 id="1-1-导出"><a href="#1-1-导出" class="headerlink" title="1.1 导出"></a>1.1 导出</h3><p>我们可以把一个文件看成一个模块，每个模块之间是互相独立的，即不会互相影响。当需要使用到某个模块时，只需在文件中将目标模块导入即可</p><p>要想被其它模块导入首先需要导出需要向外暴露的变量或方法，在 CommonJS 中导出的语法有以下两种方式</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">// 定义了函数show</span><br><span class="line">function show() &#123;</span><br><span class="line">    console.log(&#x27;show方法被调用&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">// 定义了变量count</span><br><span class="line">let count = 3</span><br><span class="line">/*--------------  导出方法  --------------*/</span><br><span class="line">// 第一种</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    show,</span><br><span class="line">    count</span><br><span class="line">&#125;</span><br><span class="line">// 第二种</span><br><span class="line">exports.show = show</span><br><span class="line">exports.count = count</span><br></pre></td></tr></table></figure><p>上述代码中，两种导出方式是等价的。</p><p>第一种导出方式是将需要导出的函数或变量存储到 <code>module.exports</code> 里面，其中 <code>module.exports</code> 原本是一个空对象</p><p>第二种导出方式中，<code>exports</code> 在内部其实是指向了 <code>module.exports</code>，所以当我们执行 exports. 变量 或 exports. 函数 时，其实就相当于把变量或函数存储到 <code>module.exports</code> 中</p><p>注意： 这里要特别强调的是，在使用第二种导出方式时，不能对 <code>exports</code> 进行重新赋值，否则就将 <code>module.exports</code> 直接全部覆盖了</p><h3 id="1-2-导入"><a href="#1-2-导入" class="headerlink" title="1.2 导入"></a>1.2 导入</h3><p>再来看一下 CommonJS 的导入语法</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// A.js</span><br><span class="line">const bModule = require(&#x27;./B.js&#x27;)</span><br><span class="line">console.log(bModule.count)  // 3</span><br><span class="line">bModule.show()  // show方法被调用</span><br></pre></td></tr></table></figure><p>从上述代码中可以看到，CommonJS 是通过 <code>require</code> 方法来导入模块的，其参数为模块文件路径，要特别注意的是，我们导入模块后接收到的其实是一个对象，也就是 <code>module.exports</code> 的值，我们能从该对象中获取到所需的变量或函数</p><p>另外，比较特别的是，<code>require</code> 方法还可以接收一个表达式作为参数，代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let fileName = &#x27;B.js&#x27;</span><br><span class="line">const bModule = require(&#x27;./&#x27; + fileName)</span><br></pre></td></tr></table></figure><p>因此，我们是可以动态的改变并决定模块的加载导入路径的</p><h2 id="2-ES6-Module"><a href="#2-ES6-Module" class="headerlink" title="2. ES6 Module"></a>2. ES6 Module</h2><hr><p>如标题名写的，该模块标准是在 ES6 时才被提出的，此后 JS 才具有了模块化这一特性</p><h3 id="2-1-导出"><a href="#2-1-导出" class="headerlink" title="2.1 导出"></a>2.1 导出</h3><p>在 ES6 Module 中，导出用到了关键字 <code>export</code> ，导出的方式也大致分为两种，分别是命名导出 、默认导出</p><p>第一种： 命名导出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">/*--------  单个变量或函数导出  ----------*/</span><br><span class="line">export function show() &#123; console.log(&#x27;show方法被调用&#x27;) &#125;</span><br><span class="line">export let count = 3</span><br><span class="line">/*--------  批量导出  ----------*/</span><br><span class="line">function show() &#123; console.log(&#x27;show方法被调用&#x27;) &#125;</span><br><span class="line">let count = 3</span><br><span class="line">export &#123;show, count&#125;</span><br></pre></td></tr></table></figure><p>上述代码分了两种情况，且这两种写法是等价的</p><p>第一种是单个的变量或函数导出，只需要直接在开头使用 <code>export</code> 关键字即可；</p><p>第二种情况是批量地把多个变量或函数导出，只需要把它们储存到一个对象中即可</p><p>第三种： 默认导出（一个模块一个默认导出）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">function show() &#123; console.log(&#x27;show方法被调用&#x27;) &#125;</span><br><span class="line">// 命名导出变量count</span><br><span class="line">export let count = 3</span><br><span class="line">// 默认导出函数show</span><br><span class="line">export default show</span><br></pre></td></tr></table></figure><p>默认导出是在 <code>export</code> 关键词后面再跟上一个 <code>default</code> 表示导出的该变量或函数是匿名的</p><p>注意： 一个模块只能默认导出一次，否则就会报错，具体原因会在后面讲解</p><h3 id="2-2-导入"><a href="#2-2-导入" class="headerlink" title="2.2 导入"></a>2.2 导入</h3><p>ES6 Module 的导入用到的关键字是 <code>import</code> ，具体代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// A.js</span><br><span class="line">import &#123;show, count&#125; from &#x27;./B.js&#x27;</span><br><span class="line">show()   // show方法被调用</span><br><span class="line">console.log(count)  // 3</span><br></pre></td></tr></table></figure><p>ES6 Module 的导入需要用一对 {} 大括号来接收我们需要导入的方法或函数</p><p>注意： 大括号中的变量或函数名必须与导出时的名称一模一样</p><p>那么如果我们想修改导入的变量或函数的名称，可以通过 <code>as</code> 关键词来命名，代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// A.js</span><br><span class="line">import &#123;show as print, count as number&#125; from &#x27;./B.js&#x27;</span><br><span class="line">print()   // show方法被调用</span><br><span class="line">console.log(number)  // 3</span><br></pre></td></tr></table></figure><p>如果我们要想将所有的变量或函数都导入，可以通过 <code>*</code> 来整体导入，代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as bModule from &#x27;./B.js&#x27;</span><br><span class="line">bModule.show()  // show方法被调用</span><br><span class="line">console.log(bModule.count)  // 3</span><br></pre></td></tr></table></figure><ul><li>表示全部的意思，我们将其全部导入，并赋值给 <code>bModule</code>，这样我们就可以通过 <code>bModule</code> 获取想要的变量或对象了</li></ul><p>以上所说的都是针对命名导出的变量或函数，那么如何导入一个默认导出的变量或函数呢？</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 将通过 export default 导出的变量导入</span><br><span class="line">import print from &#x27;./B.js&#x27;</span><br><span class="line">print()  // show方法被调用</span><br></pre></td></tr></table></figure><p>命名导出的变量都是通过 {} 来接收的，那么去掉 {} ，接收的就是默认导出的变量了，因为导出的变量是匿名的，因此我们可以随意地起个变量名用于接收</p><p>补充： 这里特别提一下，与 CommonJS 不同，ES6 Module 的导入文件路径是不支持表达式的</p><h2 id="3-CommonJS-与-ES6-Module-的区别"><a href="#3-CommonJS-与-ES6-Module-的区别" class="headerlink" title="3. CommonJS 与 ES6 Module 的区别"></a>3. CommonJS 与 ES6 Module 的区别</h2><hr><p>这两者的主要区别主要有以下两点：</p><ol><li><p><strong>对于模块的依赖，CommonJS 是动态的，ES6 Module 是静态的</strong></p></li><li><p><strong>CommonJS 导入的是值的拷贝，ES6 Module 导入的是值的引用</strong></p></li></ol><h3 id="3-1-区别一"><a href="#3-1-区别一" class="headerlink" title="3.1 区别一"></a>3.1 区别一</h3><p>对于模块的依赖，何为动态？何为静态？</p><p>动态是指对于模块的依赖关系建立在代码执行阶段；</p><p>静态是指对于模块的依赖关系建立在代码编译阶段；</p><p>上文提到，CommonJS 导入时，<code>require</code> 的路径参数是支持表达式的，例如</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// A.js</span><br><span class="line">let fileName = &#x27;example.js&#x27;</span><br><span class="line">const bModule = require(&#x27;./&#x27; + fileName)</span><br></pre></td></tr></table></figure><p>因为该路径在代码执行时是可以动态改变的，所以如果在代码编译阶段就建立各个模块的依赖关系，那么一定是不准确的，只有在代码运行了以后，才可以真正确认模块的依赖关系，因此说 <strong>CommonJS 是动态的</strong>。</p><p>那么现在你也应该也知道为什么 <strong>ES6 Module 是静态的</strong>了吧</p><h3 id="3-2-区别二"><a href="#3-2-区别二" class="headerlink" title="3.2 区别二"></a>3.2 区别二</h3><p>为了验证这一点，我准备用实例来演示一下</p><p>首先来验证 CommonJS，代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">let count = 3</span><br><span class="line">function change() &#123;</span><br><span class="line">    count ++    // 变量count + 1</span><br><span class="line">    console.log(&#x27;原count值为：&#x27;, count);  // 打印B.js模块中count的值</span><br><span class="line">&#125;</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    count,</span><br><span class="line">    change</span><br><span class="line">&#125;</span><br><span class="line">// A.js</span><br><span class="line">let count = require(&#x27;./B.js&#x27;).count </span><br><span class="line">let change = require(&#x27;./B.js&#x27;).change</span><br><span class="line">console.log(&#x27;改变前：&#x27;, count);   </span><br><span class="line">change()     // 调用模块B.js中的change方法，将原来的count + 1</span><br><span class="line">console.log(&#x27;改变后：&#x27;, count);</span><br></pre></td></tr></table></figure><p>运行 A.js 文件的结果</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">改变前：3  </span><br><span class="line">原 count 值为：4  </span><br><span class="line">改变后：3</span><br></pre></td></tr></table></figure><p>在上述代码中我们可以看到，在 <code>A.js</code> 文件中导入了 <code>B.js</code> 文件中的变量 <code>count</code> 和 函数 <code>change</code>，因为导入的 <code>count</code> 只是对原有值的一个拷贝，因此尽管我们调用了函数 <code>change</code> 改变了 <code>B.js</code> 文件中变量 <code>count</code> 的值，也不会影响到 <code>A.js</code> 文件中的变量 <code>count</code></p><p>根据这个结果得出结论：<strong>CommonJS 导入的变量是对原值的拷贝</strong></p><p>接下来再来验证一下 ES6 Module，代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// B.js</span><br><span class="line">let count = 3</span><br><span class="line">function change() &#123;</span><br><span class="line">    count ++        // 变量count + 1</span><br><span class="line">    console.log(count);   // 打印B.js模块中count的值</span><br><span class="line">&#125;</span><br><span class="line">export &#123;count, change&#125;</span><br><span class="line">// A.js</span><br><span class="line">import &#123;count, change&#125; from &#x27;./B.js&#x27;;</span><br><span class="line">console.log(&#x27;改变前：&#x27;,count);</span><br><span class="line">change()         // 调用模块B.js中的change方法，将原来的count + 1</span><br><span class="line">console.log(&#x27;改变后：&#x27;, count);</span><br></pre></td></tr></table></figure><p>运行 A.js 文件的结果</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">改变前：3  </span><br><span class="line">原 count 值为：4  </span><br><span class="line">改变后：4</span><br></pre></td></tr></table></figure><p>相比较于 CommonJS 的结果，ES6 Module 导入的变量 <code>count</code> 随着原值的改变而改变了</p><p>根据这个结果得出结论：<strong>ES6 Module 导入的变量是对原值的引用</strong></p><ol start="4"><li>The end</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 转载 </category>
+          
+          <category> 已发布 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 阅读笔记 </tag>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode - 链表</title>
       <link href="/posts/1PX7WYK.html"/>
       <url>/posts/1PX7WYK.html</url>
@@ -28,9 +59,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> Java </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -59,9 +90,9 @@
             
             <tag> blog </tag>
             
-            <tag> Java </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -92,9 +123,9 @@
             
             <tag> 阅读笔记 </tag>
             
-            <tag> Java </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -129,9 +160,9 @@
             
             <tag> JavaScript数组 </tag>
             
-            <tag> Java </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -216,9 +247,9 @@
             
             <tag> blog </tag>
             
-            <tag> Java </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
