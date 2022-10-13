@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Git&amp;Github 工作流</title>
+      <link href="/posts/DQ51JH.html"/>
+      <url>/posts/DQ51JH.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git-amp-Github-工作流"><a href="#Git-amp-Github-工作流" class="headerlink" title="Git&amp;Github 工作流"></a>Git&amp;Github 工作流</h1><h2 id="git-clone-git-…"><a href="#git-clone-git-…" class="headerlink" title="git clone git@…"></a>git clone git@…</h2><blockquote><p>克隆项目到本地</p></blockquote><h2 id="git-checkout-b-my-feature"><a href="#git-checkout-b-my-feature" class="headerlink" title="git checkout -b my-feature"></a>git checkout -b my-feature</h2><blockquote><p>新建本地分支my-feature</p></blockquote><h2 id="git-add"><a href="#git-add" class="headerlink" title="git add ."></a>git add .</h2><h2 id="git-commit-m’update’"><a href="#git-commit-m’update’" class="headerlink" title="git commit -m’update’"></a>git commit -m’update’</h2><blockquote><p>更新本地分支my-feature</p></blockquote><h2 id="git-push-origin-my-feature"><a href="#git-push-origin-my-feature" class="headerlink" title="git push origin my-feature"></a>git push origin my-feature</h2><blockquote><p>远端新建分支my-feature</p></blockquote><ul><li>此时若远端有了新的 commit，本地 main&#x2F;my-feature 并不是最新，而my-feature又有了更新</li></ul><h2 id="git-checkout-main"><a href="#git-checkout-main" class="headerlink" title="git checkout main"></a>git checkout main</h2><blockquote><p>切换到本地主分支main</p></blockquote><h2 id="git-pull-origin-master"><a href="#git-pull-origin-master" class="headerlink" title="git pull origin master"></a>git pull origin master</h2><blockquote><p>更新本地主分支main与远端master一致</p></blockquote><h2 id="git-checkout-my-feature"><a href="#git-checkout-my-feature" class="headerlink" title="git checkout my-feature"></a>git checkout my-feature</h2><blockquote><p>切换到本地工作分支my-feature</p></blockquote><h2 id="git-rebase-main"><a href="#git-rebase-main" class="headerlink" title="git rebase main"></a>git rebase main</h2><blockquote><p>在本地main最新的基础之上更新我的修改，有可能出现 rebase conflict，手动选择代码解决冲突</p></blockquote><h2 id="git-pull-f-origin-my-feature"><a href="#git-pull-f-origin-my-feature" class="headerlink" title="git pull -f origin my-feature"></a>git pull -f origin my-feature</h2><blockquote><p>将本地my-feature强行推到远端 my-feature</p></blockquote><h2 id="New-pull-request"><a href="#New-pull-request" class="headerlink" title="New pull request"></a>New pull request</h2><blockquote><p>远端的my-feature做pull resuest</p></blockquote><h2 id="Squash-and-merge"><a href="#Squash-and-merge" class="headerlink" title="Squash and merge"></a>Squash and merge</h2><blockquote><p>远端master做Squash and merge</p></blockquote><h2 id="delete-my-feature"><a href="#delete-my-feature" class="headerlink" title="delete my-feature"></a>delete my-feature</h2><blockquote><p>远端删除分支my-feature</p></blockquote><h2 id="git-checkout-main-1"><a href="#git-checkout-main-1" class="headerlink" title="git checkout main"></a>git checkout main</h2><blockquote><p>本地切换到主分支main</p></blockquote><h2 id="git-branch-D-my-feature"><a href="#git-branch-D-my-feature" class="headerlink" title="git branch -D my-feature"></a>git branch -D my-feature</h2><blockquote><p>删除本地工作分支my-feature</p></blockquote><h2 id="git-pull-origin-master-1"><a href="#git-pull-origin-master-1" class="headerlink" title="git pull origin master"></a>git pull origin master</h2><blockquote><p>更新本地main与远端mater保持一致</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+          <category> 文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JWT认证原理</title>
       <link href="/posts/A5MQTA.html"/>
       <url>/posts/A5MQTA.html</url>
