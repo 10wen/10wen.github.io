@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Docker项目部署初体验</title>
+      <link href="/posts/SK8RGB.html"/>
+      <url>/posts/SK8RGB.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Docker-Springboot项目部署"><a href="#Docker-Springboot项目部署" class="headerlink" title="Docker Springboot项目部署"></a>Docker Springboot项目部署</h2><p>① jar包同级目录创建Dockerfile文件</p><p>② 编辑Dockerfile</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取基础镜像</span></span><br><span class="line">FROM java:8</span><br><span class="line"><span class="comment"># 设置作者信息</span></span><br><span class="line">MAINTAINER 10wen</span><br><span class="line"><span class="comment"># 把pet_rescue-0.0.1-SNAPSHOT.jar添加到容器里，并重命名为app.jar</span></span><br><span class="line"><span class="comment"># 因为pet_rescue-0.0.1-SNAPSHOT.jar和Dockerfile在同一个目录下，所以只写文件名即可</span></span><br><span class="line">ADD pet_rescue-0.0.1-SNAPSHOT.jar app.jar</span><br><span class="line"><span class="comment"># 设置端口号，此处只开放一个端口2000</span></span><br><span class="line">EXPOSE 2000</span><br><span class="line"><span class="comment"># 执行命令，此处运行app.jar</span></span><br><span class="line">RUN bash -c <span class="string">&#x27;touch /app.jar&#x27;</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;app.jar&quot;</span>]</span><br></pre></td></tr></table></figure><p>③ 制作镜像：编辑好Dockerfile文件保存后，在当前文件夹输入命令</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f Dockerfile -t pet_recue_image:v1.0 .</span><br></pre></td></tr></table></figure><p>④ 查看镜像</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure><p>⑤ 创建容器，运行springboot项目制作的镜像</p><ul><li>-i 保持容器运行，-it 创建交互式容器，-id 创建守护式容器</li><li>-d 表示后台运行 </li><li>–name&#x3D;容器名称</li><li>-p 后面有两个端口，分别是：宿主机端口:容器端口 </li><li>pet_rescue_image:v1.0 使用的镜像和版本</li></ul><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -<span class="built_in">id</span> --name=pet_rescue_container -p 2000:2000 pet_rescue_image:v1.0</span><br></pre></td></tr></table></figure><p>⑥ 查看容器</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps <span class="comment">#查看正在运行的容器</span></span><br><span class="line">docker ps -a <span class="comment">#查看所有容器</span></span><br></pre></td></tr></table></figure><h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><ul><li><p>进入容器</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec 参数 #退出容器，容器不会关闭</span><br></pre></td></tr></table></figure></li><li><p>停止容器</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器名称</span><br></pre></td></tr></table></figure></li><li><p>启动容器</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 容器名称</span><br></pre></td></tr></table></figure></li><li><p>删除容器：如果容器是运行状态则删除失败，需要停止容器参能删除</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器名称</span><br></pre></td></tr></table></figure></li><li><p>查看容器信息</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器名称</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>查看所有</p>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></li><li><p>删除镜像</p>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker rmi 镜像<span class="built_in">id</span>/名称号:版本号 <span class="comment">#删除指定本地镜像</span></span><br><span class="line">docker rmi <span class="string">&#x27;docker images -q&#x27;</span> <span class="comment">#删除所有本地镜像</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git&amp;Github 工作流</title>
       <link href="/posts/DQ51JH.html"/>
       <url>/posts/DQ51JH.html</url>
