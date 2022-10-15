@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>CSS基础 | CrazyKong</title><meta name="keywords" content="css"><meta name="author" content="10wen"><meta name="copyright" content="10wen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CSS选择器123456789101112131415161718192021222324252627282930313233343536373839404142434445464748* &#x2F;* 通配符 *&#x2F;p &#x2F;* 元素选择器 *&#x2F;#ele &#x2F;* id选择器 *&#x2F;.ele &#x2F;* 类选择器 *&#x2F;div.class1 &#x2F;* 交集选择器 *&#x2F;.class1.class2.class3 &#x2F;* 交集选择器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS基础">
+<meta property="og:url" content="https://10wen.github.io/posts/1CSPW60.html">
+<meta property="og:site_name" content="CrazyKong">
+<meta property="og:description" content="CSS选择器123456789101112131415161718192021222324252627282930313233343536373839404142434445464748* &#x2F;* 通配符 *&#x2F;p &#x2F;* 元素选择器 *&#x2F;#ele &#x2F;* id选择器 *&#x2F;.ele &#x2F;* 类选择器 *&#x2F;div.class1 &#x2F;* 交集选择器 *&#x2F;.class1.class2.class3 &#x2F;* 交集选择器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2022-10-15T14:24:42.363Z">
+<meta property="article:modified_time" content="2022-10-15T14:24:42.363Z">
+<meta property="article:author" content="10wen">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://10wen.github.io/posts/1CSPW60"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8af17c14032e1fc5280f2814e29199d8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 10wen","link":"链接: ","source":"来源: CrazyKong","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#ff9933","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CSS基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-15 22:24:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/08/09/i8YbsBdeM3ADuVW.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/10wen/blog/new/master/source/_posts"><i class="fa-fw fa fa-pencil"></i><span> </span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CrazyKong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://github.com/10wen/blog/new/master/source/_posts"><i class="fa-fw fa fa-pencil"></i><span> </span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">CSS基础<a class="post-edit-link" href="https://github.com/10wen/blog/edit/master/source/_posts/前端/CSS基础.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-15T14:24:42.363Z" title="发表于 2022-10-15 22:24:42">2022-10-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-15T14:24:42.363Z" title="更新于 2022-10-15 22:24:42">2022-10-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CSS基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">* <span class="comment">/* 通配符 */</span></span><br><span class="line"><span class="selector-tag">p</span> <span class="comment">/* 元素选择器 */</span></span><br><span class="line"><span class="selector-id">#ele</span> <span class="comment">/* id选择器 */</span></span><br><span class="line"><span class="selector-class">.ele</span> <span class="comment">/* 类选择器 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.class1</span> <span class="comment">/* 交集选择器 */</span></span><br><span class="line"><span class="selector-class">.class1</span><span class="selector-class">.class2</span><span class="selector-class">.class3</span> <span class="comment">/* 交集选择器 */</span></span><br><span class="line"><span class="selector-id">#id1</span>, <span class="selector-tag">div</span><span class="selector-class">.clas1</span>, <span class="selector-id">#id1</span> <span class="comment">/* 并集选择器 */</span></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> <span class="comment">/* 子代选择器 */</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> <span class="comment">/* 后代选择器 */</span></span><br><span class="line"><span class="selector-tag">p</span> + <span class="selector-tag">span</span> <span class="comment">/* 下个兄弟选择器 */</span></span><br><span class="line"><span class="selector-tag">div</span> ~ <span class="selector-tag">p</span> <span class="comment">/* 选择div后面的全部p */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[title]</span> <span class="comment">/* 属性选择器 既是 p 又有title 属性*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[title=abc]</span> <span class="comment">/* 属性选择器 既是 p 又有title等于abc 属性*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[title^=abc]</span> <span class="comment">/* &lt;p title=&#x27;abcxasas&#x27;&gt;hello&lt;/p&gt; abc开头*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[title$=abc]</span> <span class="comment">/* &lt;p title=&#x27;asasfsfabc&#x27;&gt;hello&lt;/p&gt; abc结尾*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[title*=abc]</span> <span class="comment">/* &lt;p title=&#x27;asasasdfsfabcxas&#x27;&gt;hello&lt;/p&gt; 含有abc*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:first</span>-child <span class="comment">/* 伪类选择器 第一个li */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> <span class="comment">/* 最后一个li */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:only-child</span> <span class="comment">/* 属于p并且在父级元素中是唯一一个子元素 */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(n) <span class="comment">/* 全选li */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>n) <span class="comment">/* 偶数 或者写 :nth-child(even) */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>n+<span class="number">1</span>) <span class="comment">/* 奇数 或者写 :nth-child(odd) */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:first</span>-of-type <span class="comment">/* 同类型元素第一个li */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:last-of-type</span> <span class="comment">/* 同类型的元素最后一个li */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">2</span>n+<span class="number">1</span>) <span class="comment">/* 同类型的元素 奇数li */</span></span><br><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)) <span class="comment">/* 选中ul下所有li,除了第二个li */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> <span class="comment">/* 还没访问的超链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> <span class="comment">/* 访问过的超链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> <span class="comment">/* 鼠标悬停 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> <span class="comment">/* 鼠标点击 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-letter</span> <span class="comment">/* 伪元素 p标签内容的第一个字母 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-line</span> <span class="comment">/* 伪元素 p标签内容的第一行 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::selection</span> <span class="comment">/* 伪元素 鼠标选中的内容选中 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 元素开始位置 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;[&#x27;</span>;</span><br><span class="line">    <span class="attribute">color</span>: aquamarine;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 元素结束位置 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="css基础知识点"><a href="#css基础知识点" class="headerlink" title="css基础知识点"></a>css基础知识点</h2><ul>
+<li><p>继承特性:<br>背景相关, 布局相关 不会被继承</p>
+</li>
+<li><p>选择器权重<br>内联样式 &gt; id选择器 &gt; 类和伪类选择器 &gt; 元素选择器 &gt; 通配选择器 &gt; 继承样式<br>优先级相同，优先使用下面的</p>
+</li>
+<li><p>长度单位</p>
+<ul>
+<li>屏幕像素 px</li>
+<li>相对于父级元素的 百分比 10%</li>
+<li>em : 1 em &#x3D; 1 font-size 大小</li>
+<li>rem: 相对于根元素 html 的 font-size 字体大小</li>
+</ul>
+</li>
+<li><p>颜色单位：</p>
+<ul>
+<li>HSL: H 色相 0 - 360，S 饱和度 100%， L 亮度 100%</li>
+<li>rgb: rgb(0,233,255) 0-255</li>
+</ul>
+</li>
+<li><p>文档流</p>
+<ul>
+<li>块级元素： 默认宽度为父级全部， 高度默认是内容高度</li>
+<li>行内元素：默认高度和宽度都是内容的宽高</li>
+</ul>
+</li>
+<li><p>盒子模型：盒子大小：边框 + 内边距 + 内容</p>
+<ul>
+<li>border：10px red solid; 影响盒子的整体大小，边框外部就是 盒子外部<ul>
+<li>border-width 默认3px 三个值代表上、左右、下, </li>
+<li>border-color 默认使用 color 值，不指定的话</li>
+<li>border-style: solid; 默认 none</li>
+</ul>
+</li>
+<li>padding: 会影响盒子大小，背景颜色延申到内边距</li>
+<li>content : width, height 指定的是 content 内容区的大小</li>
+<li>margin</li>
+</ul>
+</li>
+<li><p>水平布局 </p>
+<ul>
+<li>margin-left + border-left + padding-left + content + padding-right + border-right + margin-right &#x3D; 父级元素的内容 content 宽度</li>
+<li>margin-right 会自动调整 正负数时的等式成立</li>
+<li>width 和 margin 同时为 auto 时，width 最大，margin 为 0</li>
+</ul>
+</li>
+<li><p>垂直布局</p>
+<ul>
+<li>溢出：overflow： hidden，visible，scroll滚动条，auto根据需要生成滚动条</li>
+</ul>
+</li>
+<li><p>垂直相邻元素外边距重叠</p>
+<ul>
+<li>div1 margin-bottom: 100, div2 margin-top: 200px, 两个元素距离 200px 一正一负取和</li>
+</ul>
+</li>
+<li><p>子元素外边距会传递到父元素</p>
+</li>
+<li><p>行内元素不支持宽高设置</p>
+</li>
+<li><p>垂直方向的padding，border，margin不影响布局，盖住其他元素，水平方向相邻元素不重叠</p>
+</li>
+<li><p>display: inline-block 可以设置宽高，不会独占一行</p>
+</li>
+<li><p>visibility: hidden; 隐藏后占据位置，display: none; 隐藏后不占据位置</p>
+</li>
+<li><p>去除默认样式 <code>* &#123; margin: 0;padding: 0; &#125;</code></p>
+</li>
+<li><p>设置字体垂直居中于父级，设置父级的 line-height 为父级高度即可</p>
+</li>
+<li><p>box-sizing: 设置盒子尺寸计算方式，设置width height 的作用方式</p>
+<ul>
+<li>box-sizing: content-box, width height 指的是内容content的宽高</li>
+<li>box-sizing: border-box,  width, height 指的是 content + padding + border 的总宽高</li>
+</ul>
+</li>
+<li><p>轮廓</p>
+<ul>
+<li>outline： 1px solid red 轮廓不影响布局、大小，只是添加了个轮廓</li>
+</ul>
+</li>
+<li><p>阴影</p>
+<ul>
+<li>box-shadow: black; 默认跟元素大小一致， 处于元素正下方</li>
+<li>box-shadow: 10px 10px red; 水平偏移量 和 垂直偏移量 不影响布局</li>
+<li>box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); 水平偏移量、垂直偏移量、阴影模糊半径，颜色以及透明度</li>
+</ul>
+</li>
+<li><p>圆角</p>
+<ul>
+<li>border-radius: 10px; 圆角半径</li>
+<li>border-radius： 10px&#x2F;20px; x轴半径，y轴半径</li>
+<li>border-top-left-radius： 10px 20px; x轴半径，y轴半径</li>
+<li>border-radius： 10px 20px 30px; 左上 右上和左下 右下</li>
+<li>border-radius: 50%; 画圆</li>
+</ul>
+</li>
+<li><p>float: left&#x2F;right; </p>
+<ul>
+<li>元素脱离文档流；<ul>
+<li>块级元素不会独占一行，宽高被内容撑开</li>
+<li>行内元素变成块级元素，可以设置宽高</li>
+</ul>
+</li>
+<li>元素靠父级元素边界左&#x2F;右侧移动</li>
+<li>浮动元素间不会重叠</li>
+<li>上边y轴位置不会超过兄弟元素</li>
+<li>浮动元素不会盖住文字</li>
+</ul>
+</li>
+<li><p>解决父元素因没有设置宽高而子元素浮动带来的高度塌陷或子元素带来外边距的影响</p>
+<ul>
+<li>BFC(Block Formatting Context) 块级格式化环境，<ul>
+<li>开启方法：overflow: hidden&#x2F;auto （父子关系）</li>
+<li>元素开启BFC后会变成一个独立的布局区域</li>
+<li>不会被兄弟浮动元素覆盖</li>
+<li>子元素外边距不会传递到开启BFC的父元素</li>
+<li>BFC父元素可以包含浮动子元素</li>
+</ul>
+</li>
+<li>设置clear属性为left&#x2F;right&#x2F;both （兄弟关系）<ul>
+<li>left清除左侧浮动元素带来的影响</li>
+<li>right清除右侧浮动元素带来的影响</li>
+<li>both清除两侧中较大高度的浮动元素带来的影响</li>
+</ul>
+</li>
+<li>父元素添加一个属性设置clear:both的元素（内墙法），通过html结构解决css表现上的问题</li>
+<li>（优）通过伪类解决：父元素<code>.box1::after&#123; content: &#39;&#39;; display: block; clear:both; &#125;</code>，也可以解决外边距重叠</li>
+</ul>
+</li>
+<li><p>封装同时解决高度塌陷和外边距重叠问题的解决方案</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相对定位relative：位置相对于原来自身位置，提高层级，不会改变性质，块还是块，行内还是行内</p>
+</li>
+<li><p>绝对定位absolute：位置相对于离自己的最近开启定位的祖先元素或者根元素（html初始包含块）提高层级，会改变性质，行内变成块，不写宽高块的宽高被内容撑开</p>
+<ul>
+<li>left + margin-left + border-left + padding-left + content + padding-right + border-right + margin-right + right &#x3D; 父级元素的内容 content 宽度</li>
+<li>绝对定位元素水平居中需要left和right设置为0，在使用margin:0 auto居中，因为left、right默认为auto，垂直居中同理，top和bottom设置为0</li>
+</ul>
+</li>
+<li><p>固定定位fixed：位置相对于浏览器窗口，会改变性质，行内变成块，不写宽高块的宽高被内容撑开</p>
+</li>
+<li><p>粘滞定位sticky：top0px; 滚动窗口到顶部后就不动了，粘滞</p>
+</li>
+<li><p>可以auto的值：width, left, right, margin</p>
+</li>
+<li><p>字体</p>
+<ul>
+<li>color</li>
+<li>font-family: serif衬线字体&#x2F;sans-serif非衬线字体&#x2F;monospace等宽字体</li>
+<li>font-size</li>
+<li>服务器提供字体 <code>@font-face&#123; font-family: &#39;name&#39;; src: url() &#125;</code></li>
+</ul>
+</li>
+<li><p>文本</p>
+<ul>
+<li>text-align 水平对齐</li>
+<li>vertical-align 垂直对齐</li>
+<li>解决img元素底部出现空白缝隙，使用vertical-align解决</li>
+<li>text-decoration 文本修饰</li>
+<li>white-space: nowrap不换行&#x2F;pre保留空白原本输出文本格式与内容</li>
+<li>text-overflow: ellipsis超出的文本用省略号代替，还需要容器设置宽度、文本不换行nowrap</li>
+</ul>
+</li>
+<li><p>背景</p>
+<ul>
+<li>background-color</li>
+<li>background-image: <ul>
+<li>url()</li>
+<li>linear-gradient(red,yellow,…)上到下渐变</li>
+<li>linear-gradient(red 50px起始渐变位置,yellow)上到下渐变</li>
+<li>linear-gradient(to right&#x2F;to top&#x2F;0deg&#x2F;45deg度&#x2F;.25turn圈,red,yellow)不同方向渐变</li>
+<li>repeat-linear-gradient(red,yellow,…)重复渐变</li>
+<li>radial-gradient(circle正圆,red,yellow,…)径向渐变（中心向四周）</li>
+<li>radial-gradient(100px 100px at 0 0在哪个个位置开始大小为100x100,red,yellow,…)</li>
+<li>radial-gradient(at top right,red,yellow,…)</li>
+<li>radial-gradient(closest-side&#x2F;closest-corner&#x2F;farthest-side&#x2F;farthest-corner,red,yellow,…)近远边近远边远角</li>
+</ul>
+</li>
+<li>background-image: repeat-x&#x2F;repeat-y&#x2F;no-repeat 容器大于图片的图片重复方式</li>
+<li>background-position: center center 图片位置 需要两个值 或者是水平和垂直的偏移量</li>
+<li>background-clip: padding-box背景不会出现在边框&#x2F;content-box背景只出现在内容区</li>
+<li>background-origin: border-box&#x2F;padding-box&#x2F;content-box 背景图片偏移量的计算源点</li>
+<li>background-size: 100%背景图片宽度撑满容器高度auto&#x2F;cover图片比例不变撑满容器&#x2F;contain图片比例不变将图片完整显示在容器</li>
+<li>background-attachment: fixed; 背景不会跟随元素滚动</li>
+<li>background: #bfc url() center center&#x2F;contain no-repeat</li>
+</ul>
+</li>
+<li><p>table</p>
+<ul>
+<li>border-collapse; 合并边框</li>
+<li>div可设置display:table-ceil; 使用vertical-align垂直居中</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://10wen.github.io">10wen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://10wen.github.io/posts/1CSPW60.html">https://10wen.github.io/posts/1CSPW60.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://10wen.github.io" target="_blank">CrazyKong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/css/">css</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/2HE32QR.html"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Nodejs基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/7E7FHF.html" title="CSS3基础"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-12</div><div class="title">CSS3基础</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">css基础知识点</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By 10wen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '07e4340d2eae5aaafa10',
+      clientSecret: '8aab0668039c5105623174166757e3424f92f466',
+      repo: '10wen.github.io',
+      owner: '10wen',
+      admin: ['10wen'],
+      id: '21056835a6a44a63b0f14f17133f221e',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="//code.tidio.co/mxlkhkj03s70ir7kroa4saqlnoagc5cl.js" async="async"></script><script>function chatBtnHide () {
+  if (window.tidioChatApi) {
+    //- window.tidioChatApi.hide();
+    document.getElementById('tidio-chat').style.display= 'none'
+  }
+}
+
+function chatBtnShow () {
+  if (window.tidioChatApi) {
+    //- window.tidioChatApi.show();
+    document.getElementById('tidio-chat').style.display= 'block'
+  } 
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
